@@ -1,10 +1,10 @@
 @import "tailwindcss";
 
 @theme {
-  --color-background: #10002B;
+  --color-background: #0B001E;
   --color-foreground: #ffffff;
 
-  --color-primary: #10002B;
+  --color-primary: #0B001E;
   /* Deep Obsidian Purple */
   --color-secondary: #240046;
   /* Royal Tech Purple */

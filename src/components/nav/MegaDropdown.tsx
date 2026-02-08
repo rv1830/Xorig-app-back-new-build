@@ -32,7 +32,7 @@ export default function MegaDropdown({ open, onClose }: Props) {
                         transition={{ duration: 0.25, ease: "easeOut" }}
                         className="hidden lg:block fixed left-1/2 -translate-x-1/2 top-16
             w-[min(1100px,90vw)] max-w-7xl rounded-3xl
-            bg-[#10002B]/95 backdrop-blur-2xl border border-white/10 shadow-2xl z-50"
+            bg-[#0B001E]/95 backdrop-blur-2xl border border-white/10 shadow-2xl z-50"
                         onMouseLeave={onClose}
                     >
                         <div className="grid grid-cols-6 gap-6 p-8">
@@ -78,11 +78,11 @@ export default function MegaDropdown({ open, onClose }: Props) {
                         exit={{ opacity: 0, x: "100%" }}
                         transition={{ duration: 0.3, ease: "easeOut" }}
                         className="lg:hidden fixed right-0 top-0 bottom-0 w-[85vw] max-w-sm
-            bg-[#10002B]/98 backdrop-blur-2xl border-l border-white/10 shadow-2xl z-50
+            bg-[#0B001E]/98 backdrop-blur-2xl border-l border-white/10 shadow-2xl z-50
             overflow-y-auto"
                     >
                         {/* Header */}
-                        <div className="sticky top-0 bg-[#10002B] border-b border-white/10 px-6 py-4 flex items-center justify-between">
+                        <div className="sticky top-0 bg-[#0B001E] border-b border-white/10 px-6 py-4 flex items-center justify-between">
                             <h3 className="text-lg font-black text-white">Find a Solution</h3>
                             <button
                                 onClick={onClose}
@@ -124,7 +124,7 @@ export default function MegaDropdown({ open, onClose }: Props) {
                         </div>
 
                         {/* Footer */}
-                        <div className="sticky bottom-0 bg-[#10002B] border-t border-white/10 px-6 py-4 text-xs text-gray-400">
+                        <div className="sticky bottom-0 bg-[#0B001E] border-t border-white/10 px-6 py-4 text-xs text-gray-400">
                             Not sure? Pick your intent anyway — XO guides the exact build.
                         </div>
                     </motion.div>

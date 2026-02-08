@@ -6,11 +6,11 @@ import { ArrowRight, Cpu, FileText } from "lucide-react";
 
 export default function HeroSection() {
     return (
-        <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-[#10002B]">
-            {/* Background Gradients */}
-            <div className="absolute top-0 left-0 w-full h-full overflow-hidden z-0">
-                <div className="absolute top-[-10%] left-[-10%] w-[40%] h-[40%] bg-[#240046] rounded-full blur-[120px] opacity-50 animate-pulse" />
-                <div className="absolute bottom-[-10%] right-[-10%] w-[40%] h-[40%] bg-[#C77DFF] rounded-full blur-[120px] opacity-20 animate-pulse delay-1000" />
+        <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-[#0B001E]">
+            {/* Background Atmosphere */}
+            <div className="absolute top-0 left-0 w-full h-full pointer-events-none overflow-hidden">
+                <div className="absolute top-[20%] right-[10%] w-[600px] h-[600px] bg-[#C77DFF] rounded-full blur-[150px] opacity-[0.08]" />
+                <div className="absolute bottom-[10%] left-[10%] w-[500px] h-[500px] bg-[#FDC500] rounded-full blur-[120px] opacity-[0.05]" />
             </div>
 
             <div className="container mx-auto px-6 relative z-10 text-center">
@@ -64,25 +64,25 @@ export default function HeroSection() {
 
                 {/* SEO Keywords Hidden but present structurally or visible as tags */}
                 <motion.div
-  initial={{ opacity: 0 }}
-  animate={{ opacity: 1 }}
-  transition={{ delay: 1, duration: 1 }}
-  className="mt-16 flex flex-wrap items-center justify-center gap-x-3 gap-y-2 text-white/30 text-sm font-mono"
->
-  <span>100+ PCs shipped</span>
-  <span>•</span>
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 1 }}
+                    transition={{ delay: 1, duration: 1 }}
+                    className="mt-16 flex flex-wrap items-center justify-center gap-x-3 gap-y-2 text-white/30 text-sm font-mono"
+                >
+                    <span>100+ PCs shipped</span>
+                    <span>•</span>
 
-  <span>Gaming Workstation</span>
-  <span>•</span>
+                    <span>Gaming Workstation</span>
+                    <span>•</span>
 
-  <span>PanIndia Delivery</span>
-  <span>•</span>
+                    <span>PanIndia Delivery</span>
+                    <span>•</span>
 
-  <span>Verified Sellers</span>
-  <span>•</span>
+                    <span>Verified Sellers</span>
+                    <span>•</span>
 
-  <span>6+ years of consultation experience</span>
-</motion.div>
+                    <span>6+ years of consultation experience</span>
+                </motion.div>
             </div>
         </section>
     );

@@ -112,7 +112,7 @@ export default function PCScroll() {
 
 
     return (
-        <div ref={containerRef} className="h-[400vh] w-full relative bg-[#10002B]">
+        <div ref={containerRef} className="h-[400vh] w-full relative bg-[#0B001E]">
 
             {/* Loading State */}
             <AnimatePresence>
@@ -120,7 +120,7 @@ export default function PCScroll() {
                     <motion.div
                         initial={{ opacity: 1 }}
                         exit={{ opacity: 0 }}
-                        className="fixed inset-0 z-50 flex flex-col items-center justify-center bg-[#10002B] text-[#FDC500]"
+                        className="fixed inset-0 z-50 flex flex-col items-center justify-center bg-[#0B001E] text-[#FDC500]"
                     >
                         <div className="w-16 h-16 border-4 border-[#FDC500]/20 border-t-[#FDC500] rounded-full animate-spin mb-4"></div>
                         <p className="font-mono text-sm tracking-widest">LOADING SEQUENCE {Math.round((loadedCount / FRAME_COUNT) * 100)}%</p>
@@ -130,6 +130,12 @@ export default function PCScroll() {
 
             {/* Sticky Canvas & Overlays */}
             <div className="sticky top-20 h-[calc(100vh-3.5rem)] w-full overflow-hidden">
+                {/* Background Atmosphere */}
+                <div className="absolute top-0 left-0 w-full h-full pointer-events-none overflow-hidden">
+                    <div className="absolute top-[20%] right-[10%] w-[600px] h-[600px] bg-[#C77DFF] rounded-full blur-[150px] opacity-[0.08]" />
+                    <div className="absolute bottom-[10%] left-[10%] w-[500px] h-[500px] bg-[#FDC500] rounded-full blur-[120px] opacity-[0.05]" />
+                </div>
+
                 <canvas ref={canvasRef} className="absolute inset-0 w-full h-full object-contain" />
 
                 {/* Text Overlays - Inside sticky container to stay with canvas */}

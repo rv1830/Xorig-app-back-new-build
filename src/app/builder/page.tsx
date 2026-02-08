@@ -2,21 +2,41 @@
 
 import Navbar from "@/components/Navbar";
 import BuilderChat from "@/components/builder/BuilderChat";
+import Footer from "@/components/Footer"; 
 import { motion } from "framer-motion";
 
 export default function BuilderPage() {
   return (
-    <main className="min-h-screen bg-[#10002B] text-white selection:bg-[#FDC500] selection:text-[#240046] overflow-hidden relative">
+    <main className="min-h-screen bg-[#0B001E] text-white selection:bg-[#FDC500] selection:text-[#240046] overflow-x-hidden relative">
+      
+      {/* --- Under Development Note --- */}
+      <div className="fixed top-24 right-4 z-50 pointer-events-none">
+        <motion.div 
+          initial={{ opacity: 0, x: 20 }}
+          animate={{ opacity: 1, x: 0 }}
+          className="bg-red-500/10 border border-red-500/50 backdrop-blur-md px-4 py-2 rounded-lg flex items-center gap-2"
+        >
+          <span className="relative flex h-2 w-2">
+            <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-red-400 opacity-75"></span>
+            <span className="relative inline-flex rounded-full h-2 w-2 bg-red-500"></span>
+          </span>
+          <span className="text-red-500 text-[10px] md:text-xs font-bold uppercase tracking-wider">
+            Under Development
+          </span>
+        </motion.div>
+      </div>
+
       <Navbar />
 
-      {/* Decorative Background */}
-      <div className="absolute inset-0 pointer-events-none z-0">
-         <div className="absolute top-[20%] left-[10%] w-[500px] h-[500px] bg-[#240046] rounded-full blur-[150px] opacity-40 animate-pulse" />
-         <div className="absolute bottom-[20%] right-[10%] w-[400px] h-[400px] bg-[#C77DFF] rounded-full blur-[150px] opacity-20" />
+      {/* --- Global Background Atmosphere --- */}
+      <div className="fixed top-0 left-0 w-full h-full pointer-events-none overflow-hidden -z-10">
+          <div className="absolute top-[20%] right-[10%] w-[600px] h-[600px] bg-[#C77DFF] rounded-full blur-[150px] opacity-[0.08]" />
+          <div className="absolute bottom-[10%] left-[10%] w-[500px] h-[500px] bg-[#FDC500] rounded-full blur-[120px] opacity-[0.05]" />
       </div>
 
       <div className="relative z-10 container mx-auto px-4 pt-32 pb-20 flex flex-col items-center">
         
+        {/* Header Section */}
         <motion.div 
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
@@ -35,6 +55,7 @@ export default function BuilderPage() {
             </p>
         </motion.div>
 
+        {/* Chat Component */}
         <motion.div
             initial={{ opacity: 0, scale: 0.95 }}
             animate={{ opacity: 1, scale: 1 }}
@@ -51,7 +72,7 @@ export default function BuilderPage() {
                 { title: "Zero Bottlenecks", desc: "Ensures CPU and GPU are perfectly matched." },
                 { title: "Real Availability", desc: "Only suggests parts currently in stock in India." }
             ].map((feature, i) => (
-                <div key={i} className="bg-white/5 border border-white/5 p-6 rounded-2xl backdrop-blur-sm text-center">
+                <div key={i} className="bg-white/5 border border-white/5 p-6 rounded-2xl backdrop-blur-sm text-center hover:bg-white/10 transition-colors">
                     <h3 className="text-[#FDC500] font-bold mb-2">{feature.title}</h3>
                     <p className="text-gray-400 text-sm">{feature.desc}</p>
                 </div>
@@ -59,6 +80,8 @@ export default function BuilderPage() {
         </div>
 
       </div>
+
+      <Footer />
     </main>
   );
 }

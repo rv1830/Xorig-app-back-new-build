@@ -34,7 +34,7 @@ const Navbar = () => {
           flex items-center justify-between 
           transition-all duration-500 ease-in-out
           ${scrolled
-                        ? "w-full max-w-[1200px] h-14 px-6 rounded-2xl bg-[#10002B]/70 backdrop-blur-xl border border-white/10 shadow-[0_8px_32px_rgba(0,0,0,0.1)]"
+                        ? "w-full max-w-[1200px] h-14 px-6 rounded-2xl bg-[#0B001E]/70 backdrop-blur-xl border border-white/10 shadow-[0_8px_32px_rgba(0,0,0,0.1)]"
                         : "w-full max-w-[1400px] h-18 px-8 rounded-none bg-transparent border-transparent"
                     }
         `}
@@ -113,7 +113,7 @@ const Navbar = () => {
                         initial={{ opacity: 0, y: -20 }}
                         animate={{ opacity: 1, y: 0 }}
                         exit={{ opacity: 0, y: -20 }}
-                        className="fixed inset-x-4 top-24 z-[99] lg:hidden p-8 rounded-[2.5rem] bg-[#10002B]/95 backdrop-blur-2xl border border-white/10 shadow-2xl pointer-events-auto"
+                        className="fixed inset-x-4 top-24 z-[99] lg:hidden p-8 rounded-[2.5rem] bg-[#0B001E]/95 backdrop-blur-2xl border border-white/10 shadow-2xl pointer-events-auto"
                     >
                         <div className="flex flex-col gap-6 text-center">
                             {/* Find a solution button */}

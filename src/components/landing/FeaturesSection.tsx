@@ -83,12 +83,12 @@ const categories = [
 
 export default function FeaturesSection() {
     return (
-        <section className="py-24 bg-[#10002B] relative overflow-hidden">
-            {/* --- Global Background Ambience --- */}
-            <div className="absolute top-0 left-0 w-full h-full overflow-hidden pointer-events-none">
-                <div className="absolute top-[10%] left-[-10%] w-[500px] h-[500px] bg-[#C77DFF] rounded-full blur-[120px] opacity-10" />
-                <div className="absolute bottom-[10%] right-[-5%] w-[600px] h-[600px] bg-[#240046] rounded-full blur-[100px] opacity-40" />
-                <div className="absolute inset-0 bg-[url('https://grainy-gradients.vercel.app/noise.svg')] opacity-20 brightness-100 contrast-150 mix-blend-overlay"></div>
+        <section className="py-24 bg-[#0B001E] relative overflow-hidden">
+            
+            {/* --- Global Background Atmosphere --- */}
+            <div className="absolute top-0 left-0 w-full h-full pointer-events-none overflow-hidden">
+                <div className="absolute top-[20%] right-[10%] w-[600px] h-[600px] bg-[#C77DFF] rounded-full blur-[150px] opacity-[0.08]" />
+                <div className="absolute bottom-[10%] left-[10%] w-[500px] h-[500px] bg-[#FDC500] rounded-full blur-[120px] opacity-[0.05]" />
             </div>
 
             <div className="container mx-auto px-6 relative z-10">
@@ -118,9 +118,10 @@ export default function FeaturesSection() {
                             key={idx}
                             initial={{ opacity: 0, y: 20 }}
                             whileInView={{ opacity: 1, y: 0 }}
+                            whileHover={{ y: -10, scale: 1.02 }} // EFFECT ADDED HERE
                             viewport={{ once: true }}
-                            transition={{ delay: idx * 0.1, duration: 0.5 }}
-                            className="bg-white/[0.03] backdrop-blur-sm rounded-xl p-6 border border-white/5 hover:border-[#C77DFF]/30 hover:bg-white/[0.06] transition-all duration-300 group"
+                            transition={{ delay: idx * 0.1, duration: 0.3 }}
+                            className="bg-[#1A052A]/40 backdrop-blur-sm rounded-xl p-6 border border-white/5 hover:border-[#C77DFF]/30 hover:bg-white/[0.06] hover:shadow-[0_10px_30px_-10px_rgba(199,125,255,0.2)] transition-all duration-300 group"
                         >
                             <div className="flex items-start gap-4">
                                 <div className="bg-[#240046]/80 p-3 rounded-lg border border-white/5 group-hover:scale-110 transition-transform duration-300 shadow-lg shadow-[#10002B]">
@@ -142,8 +143,9 @@ export default function FeaturesSection() {
                     <motion.div
                         initial={{ opacity: 0, scale: 0.95 }}
                         whileInView={{ opacity: 1, scale: 1 }}
+                        whileHover={{ y: -10, scale: 1.02 }} // EFFECT ADDED HERE
                         viewport={{ once: true }}
-                        className="bg-gradient-to-br from-[#240046] to-[#10002B] rounded-xl p-6 border border-[#FDC500]/30 flex flex-col justify-center items-center text-center relative overflow-hidden group hover:shadow-[0_0_40px_-10px_rgba(253,197,0,0.2)] transition-shadow"
+                        className="bg-gradient-to-br from-[#240046] to-[#10002B] rounded-xl p-6 border border-[#FDC500]/30 flex flex-col justify-center items-center text-center relative overflow-hidden group hover:shadow-[0_0_40px_-10px_rgba(253,197,0,0.3)] transition-all"
                     >
                         <CheckCircle className="w-10 h-10 text-[#FDC500] mb-3" />
                         <h3 className="text-xl font-black text-white mb-1">Join 1000+ Builders</h3>
@@ -202,13 +204,14 @@ export default function FeaturesSection() {
                                 key={idx}
                                 initial={{ opacity: 0, y: 20 }}
                                 whileInView={{ opacity: 1, y: 0 }}
+                                whileHover={{ y: -10, scale: 1.02 }} // EFFECT ADDED HERE
                                 viewport={{ once: true }}
                                 transition={{ delay: idx * 0.05 }}
                                 className="group relative h-full"
                             >
                                 <div className="absolute inset-0 bg-gradient-to-r from-[#C77DFF] to-[#FDC500] rounded-2xl opacity-0 group-hover:opacity-100 blur transition-opacity duration-500 -z-10" />
                                 
-                                <div className="h-full bg-[#1A0536] border border-white/10 rounded-2xl p-6 relative overflow-hidden group-hover:bg-[#15032b] transition-colors">
+                                <div className="h-full bg-[#1A052A] border border-white/10 rounded-2xl p-6 relative overflow-hidden group-hover:bg-[#15032b] transition-colors shadow-none group-hover:shadow-[0_10px_40px_-10px_rgba(0,0,0,0.5)]">
                                     {/* Icon Header */}
                                     <div className="flex justify-between items-start mb-4">
                                         <div className={`p-3 rounded-xl bg-gradient-to-br ${cat.color} bg-opacity-10 bg-clip-padding backdrop-filter backdrop-blur-sm border border-white/10`}>
