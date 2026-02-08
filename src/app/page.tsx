@@ -1,65 +1,106 @@
-import Image from "next/image";
+"use client";
+
+import { motion } from "framer-motion";
+import { ShoppingCart, Cpu, Zap, Monitor, ArrowRight } from "lucide-react";
+import PCScroll from "@/components/PCScroll";
+import Navbar from "@/components/Navbar";
 
 export default function Home() {
   return (
-    <div className="flex min-h-screen items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex min-h-screen w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the page.tsx file.
-          </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
-          </p>
-        </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
+    <main className="min-h-screen bg-[#10002B] text-white selection:bg-[#FDC500] selection:text-[#240046]">
+
+      {/* Navigation - Fixed with specific design */}
+      <Navbar />
+
+      {/* Scrollytelling Component */}
+      <PCScroll />
+
+      {/* Features Section */}
+      <section className="relative w-full py-32 px-4 bg-[#10002B] z-20">
+        <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-8 perspective-1000">
+          {/* Card 1 */}
+          <motion.div
+            className="glass-card p-10 flex flex-col items-start relative overflow-hidden group h-full min-h-[400px]"
+            initial={{ opacity: 0, y: 50 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, delay: 0.1 }}
+            viewport={{ once: true }}
+            whileHover={{ y: -10 }}
           >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
-            />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
+            <div className="absolute top-0 right-0 w-40 h-40 bg-[#C77DFF]/20 blur-[80px] rounded-full group-hover:bg-[#C77DFF]/30 transition-all"></div>
+            <div className="p-4 rounded-2xl bg-[#240046]/50 mb-6 text-[#C77DFF] border border-white/10 shadow-inner">
+              <Cpu size={40} />
+            </div>
+            <h3 className="text-3xl font-bold mb-4 text-white">Custom Configs</h3>
+            <p className="text-gray-300 text-lg leading-relaxed mb-6">
+              Choose every component from CPU to cooling. Real-time compatibility checks ensure a perfect build.
+            </p>
+            <div className="mt-auto flex items-center text-[#FDC500] text-lg font-bold group-hover:translate-x-2 transition-transform cursor-pointer">
+              Configure Now <ArrowRight size={24} className="ml-2" />
+            </div>
+          </motion.div>
+
+          {/* Card 2 */}
+          <motion.div
+            className="glass-card p-10 flex flex-col items-start relative overflow-hidden group h-full min-h-[400px]"
+            initial={{ opacity: 0, y: 50 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, delay: 0.2 }}
+            viewport={{ once: true }}
+            whileHover={{ y: -10 }}
           >
-            Documentation
-          </a>
+            <div className="absolute top-0 right-0 w-40 h-40 bg-[#FDC500]/20 blur-[80px] rounded-full group-hover:bg-[#FDC500]/30 transition-all"></div>
+            <div className="p-4 rounded-2xl bg-[#240046]/50 mb-6 text-[#FDC500] border border-white/10 shadow-inner">
+              <Zap size={40} />
+            </div>
+            <h3 className="text-3xl font-bold mb-4 text-white">Fast Delivery</h3>
+            <p className="text-gray-300 text-lg leading-relaxed mb-6">
+              Get your custom rig delivered in record time. Priority assembly and testing for urgent needs.
+            </p>
+            <div className="mt-auto flex items-center text-[#FDC500] text-lg font-bold group-hover:translate-x-2 transition-transform cursor-pointer">
+              Learn More <ArrowRight size={24} className="ml-2" />
+            </div>
+          </motion.div>
+
+          {/* Card 3 */}
+          <motion.div
+            className="glass-card p-10 flex flex-col items-start relative overflow-hidden group h-full min-h-[400px]"
+            initial={{ opacity: 0, y: 50 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, delay: 0.3 }}
+            viewport={{ once: true }}
+            whileHover={{ y: -10 }}
+          >
+            <div className="absolute top-0 right-0 w-40 h-40 bg-white/10 blur-[80px] rounded-full group-hover:bg-white/20 transition-all"></div>
+            <div className="p-4 rounded-2xl bg-[#240046]/50 mb-6 text-white border border-white/10 shadow-inner">
+              <Monitor size={40} />
+            </div>
+            <h3 className="text-3xl font-bold mb-4 text-white">Pro Workstations</h3>
+            <p className="text-gray-300 text-lg leading-relaxed mb-6">
+              Engineered for professionals. Optimized for 3D rendering, video editing, and AI development.
+            </p>
+            <div className="mt-auto flex items-center text-[#FDC500] text-lg font-bold group-hover:translate-x-2 transition-transform cursor-pointer">
+              Explore Workstations <ArrowRight size={24} className="ml-2" />
+            </div>
+          </motion.div>
         </div>
-      </main>
-    </div>
+      </section>
+
+      {/* Footer */}
+      <footer className="w-full bg-[#0a001a] py-12 px-8 z-20 border-t border-white/10">
+        <div className="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-6">
+          <div className="text-2xl font-bold text-[#FDC500]">Xorigg</div>
+          <div className="flex gap-8 text-gray-400 text-sm">
+            <a href="#" className="hover:text-white transition-colors">Privacy Policy</a>
+            <a href="#" className="hover:text-white transition-colors">Terms of Service</a>
+            <a href="#" className="hover:text-white transition-colors">Contact</a>
+          </div>
+          <div className="text-gray-600 text-sm">
+            © 2026 Xorigg Inc. All rights reserved.
+          </div>
+        </div>
+      </footer>
+
+    </main>
   );
 }

@@ -1,26 +1,74 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
+@theme {
+  --color-background: #10002B;
+  --color-foreground: #ffffff;
+
+  --color-primary: #10002B;
+  /* Deep Obsidian Purple */
+  --color-secondary: #240046;
+  /* Royal Tech Purple */
+  --color-accent: #C77DFF;
+  /* Electric Lavender */
+  --color-highlight: #FDC500;
+  /* Neon Gold Yellow */
+
+  --font-sans: var(--font-inter), ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+/* Custom Utilities */
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
   }
 }
 
+/* Glassmorphism Classes */
+.glass-morphism {
+  @apply bg-white/5 backdrop-blur-md border border-white/10 shadow-lg;
+}
+
+.glass-card {
+  @apply bg-white/5 backdrop-blur-2xl rounded-2xl border border-white/10 shadow-2xl transition-all duration-300;
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.05), rgba(255, 255, 255, 0));
+}
+
+.glass-card:hover {
+  @apply -translate-y-2 shadow-accent/20;
+  box-shadow: 0 12px 40px 0 rgba(199, 125, 255, 0.2);
+}
+
+/* 3D Utilities */
+.preserve-3d {
+  transform-style: preserve-3d;
+}
+
+.perspective-1000 {
+  perspective: 1000px;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--color-primary);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--color-secondary);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-accent);
+}
+
+/* Global resets if needed */
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background-color: var(--color-background);
+  color: var(--color-foreground);
+  font-family: var(--font-sans);
+  overflow-x: hidden;
 }
