@@ -64,16 +64,25 @@ export default function HeroSection() {
 
                 {/* SEO Keywords Hidden but present structurally or visible as tags */}
                 <motion.div
-                    initial={{ opacity: 0 }}
-                    animate={{ opacity: 1 }}
-                    transition={{ delay: 1, duration: 1 }}
-                    className="mt-16 flex flex-wrap justify-center gap-4 text-white/30 text-sm font-mono"
-                >
-                    <span>Custom PC India</span> •
-                    <span>Gaming Workstation</span> •
-                    <span>Deep Learning Rigs</span> •
-                    <span>Verified Sellers</span>
-                </motion.div>
+  initial={{ opacity: 0 }}
+  animate={{ opacity: 1 }}
+  transition={{ delay: 1, duration: 1 }}
+  className="mt-16 flex flex-wrap items-center justify-center gap-x-3 gap-y-2 text-white/30 text-sm font-mono"
+>
+  <span>100+ PCs shipped</span>
+  <span>•</span>
+
+  <span>Gaming Workstation</span>
+  <span>•</span>
+
+  <span>PanIndia Delivery</span>
+  <span>•</span>
+
+  <span>Verified Sellers</span>
+  <span>•</span>
+
+  <span>6+ years of consultation experience</span>
+</motion.div>
             </div>
         </section>
     );
