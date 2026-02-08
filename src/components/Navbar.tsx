@@ -23,7 +23,7 @@ const Navbar = () => {
         { name: "AI Builder", href: "/builder" },
         { name: "Marketplace", href: "/marketplace" },
         { name: "About", href: "/about" },
-        { name: "Trust & Safety", href: "/trust-safety" },
+        { name: "Contact", href: "/contact" },
     ];
 
     return (
@@ -93,14 +93,8 @@ const Navbar = () => {
                 {/* Desktop Actions */}
                 <div className="hidden lg:flex items-center gap-4">
                     <ThemeToggle />
-                    <div className="h-4 w-px bg-white/20 mx-1" />
-                    <Link href="/login" className="text-xs font-bold uppercase tracking-widest text-white hover:text-[#FDC500] transition-colors">
-                        Log in
-                    </Link>
                     <Button asChild size="sm" className="h-10 px-6 rounded-xl font-bold bg-[#FDC500] text-[#10002B] shadow-lg shadow-[#FDC500]/20 hover:shadow-[#FDC500]/40 hover:bg-white transition-all">
-                        <Link href="/signup" className="flex items-center gap-2">
-                            Start Loop <ArrowRight className="w-4 h-4" />
-                        </Link>
+                        <Link href="/contact">Talk to an Expert</Link>
                     </Button>
                 </div>
 

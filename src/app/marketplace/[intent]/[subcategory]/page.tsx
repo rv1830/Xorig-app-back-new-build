@@ -1,16 +1,23 @@
+"use client";
+
 import { notFound } from "next/navigation";
 import Link from "next/link";
+import { useState, use } from "react";
 import { MARKETPLACE_DATA } from "@/data/marketplace";
+import type { Build } from "@/data/marketplace";
 import Navbar from "@/components/Navbar";
+import PaymentModal from "@/components/marketplace/PaymentModal";
+import { AnimatePresence } from "framer-motion";
 import { ArrowLeft, ArrowRight, ShoppingCart, Zap } from "lucide-react";
 
 interface Props {
     params: Promise<{ intent: string; subcategory: string }>;
 }
 
-export default async function SubcategoryPage({ params }: Props) {
-    // Await params (Next.js 15 requirement)
-    const { intent: intentId, subcategory: subcategoryId } = await params;
+export default function SubcategoryPage({ params }: Props) {
+    // Use React.use() for async params in client component
+    const { intent: intentId, subcategory: subcategoryId } = use(params);
+    const [modalBuild, setModalBuild] = useState<Build | null>(null);
 
     // Find intent
     const intent = MARKETPLACE_DATA.find((i) => i.id === intentId);
@@ -101,12 +108,12 @@ export default async function SubcategoryPage({ params }: Props) {
                                 </div>
 
                                 {/* CTA */}
-                                <Link
-                                    href={`/marketplace/checkout?build=${build.name}&price=${build.priceValue}`}
+                                <button
+                                    onClick={() => setModalBuild(build)}
                                     className="block w-full py-3 bg-[#FDC500] text-[#10002B] font-bold text-center rounded-xl hover:bg-white transition-all"
                                 >
                                     Order This Build
-                                </Link>
+                                </button>
                             </div>
                         ))}
                     </div>
@@ -143,6 +150,16 @@ export default async function SubcategoryPage({ params }: Props) {
                     </div>
                 )}
             </div>
+
+            {/* Payment Modal */}
+            <AnimatePresence>
+                {modalBuild && (
+                    <PaymentModal
+                        build={modalBuild}
+                        onClose={() => setModalBuild(null)}
+                    />
+                )}
+            </AnimatePresence>
         </main>
     );
 }
