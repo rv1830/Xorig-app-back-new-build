@@ -1,0 +1,53 @@
+# XO Rig - Custom PCs Built for Your Intent
+> XO Rig is a custom PC building company based in India that builds PCs tailored to specific use cases (intents) rather than generic specifications. We focus on what you do, not just what specs you want. Pan-India delivery with 60-minute response time during business hours.
+
+## Project Details
+- **Website**: https://xorig.gg
+- **Logo**: ![XO Rig Logo](https://xorig.gg/Full%20Logo%20Purple%20NoBG.png)
+- **Company**: XO Rig Computers Pvt. Ltd.
+- **Location**: Bahadurgarh, Haryana, India
+- **Contact**: Phone: +918901089898 | Email: hello@xorig.gg
+
+## Site Pages
+- [Home](https://xorig.gg/) - Landing page with company overview and value proposition
+- [Marketplace](https://xorig.gg/marketplace) - Browse all PC builds by intent category
+- [Build PC](https://xorig.gg/builder) - Custom PC builder
+- [About](https://xorig.gg/about) - Company information
+- [Trust & Safety](https://xorig.gg/trust-safety) - Trust and safety information
+
+## Intent Categories
+- [Gaming PCs](https://xorig.gg/marketplace) - Competitive FPS, AAA Gaming, High Refresh, Gaming + Streaming
+- [Graphics & 3D](https://xorig.gg/marketplace) - Blender, CAD, Visualization & Rendering
+- [AI Workstations](https://xorig.gg/marketplace) - Starter AI, Pro AI, Heavy Training, Creator + AI Hybrid
+- [Photo & Video](https://xorig.gg/marketplace) - Photo Editing, 4K Video Editing, Motion Graphics
+- [Streaming & Production](https://xorig.gg/marketplace) - Streaming Starter, Streaming Pro, Creator Studio
+- [Office](https://xorig.gg/marketplace) - Everyday Value, Silent Office, Heavy Multitasking
+
+## Build Tiers
+- **XO Spark**: Entry level builds (₹35,000 - ₹45,000)
+- **XO Pulse**: Mid-range builds (₹55,000 - ₹95,000)
+- **XO Nova**: High performance builds (₹1,10,000 - ₹1,85,000)
+- **XO Apex**: Premium builds (₹2,20,000 - ₹2,75,000)
+
+## Legal & Policies
+- [Terms & Conditions](https://xorig.gg/legal/terms) - Service terms and conditions
+- [Privacy Policy](https://xorig.gg/legal/privacy) - Data handling and privacy information
+- [Cancellation & Refund](https://xorig.gg/legal/cancellation-refund) - 7-day cancellation window, refund policies
+- [Shipping & Exchange](https://xorig.gg/legal/shipping-exchange) - Pan-India shipping, exchange policies
+
+## Key Features
+- Pre-configured builds optimized for specific workflows
+- Custom configuration available on request
+- Pan-India shipping included
+- 60-minute response time during business hours
+- Secure payment via Cashfree Payment Gateway
+- Warranty as per manufacturer terms
+
+## Popular Builds
+- **Esports Starter** (₹45,000) - 1080p 144Hz competitive gaming
+- **AAA Performance** (₹1,35,000) - 1440p Ultra with ray tracing
+- **Blender Pro** (₹1,55,000) - Professional 3D rendering
+- **AI Developer** (₹1,85,000) - 24GB VRAM for AI training
+- **4K Pro** (₹1,45,000) - 4K multicam video editing
+- **Stream Pro** (₹1,25,000) - Professional streaming setup
+- **Silent Productivity** (₹55,000) - Whisper-quiet office PC

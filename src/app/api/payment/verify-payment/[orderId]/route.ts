@@ -1,17 +1,7 @@
-
-// Step Id: 136
 // src/app/api/payment/verify-payment/[orderId]/route.ts
 
 import { NextRequest, NextResponse } from "next/server";
-import { Cashfree } from "cashfree-pg";
-
-// Re-init for this route (Serverless constraint: shared imports sometimes reloaded)
-// In a larger app, you'd export a singleton.
-Cashfree.XClientId = process.env.CASHFREE_APP_ID;
-Cashfree.XClientSecret = process.env.CASHFREE_SECRET_KEY;
-Cashfree.XEnvironment = process.env.CASHFREE_ENV === 'production'
-    ? Cashfree.Environment.PRODUCTION
-    : Cashfree.Environment.SANDBOX;
+import { cashfree } from "@/lib/cashfree";
 
 export async function GET(req: NextRequest, { params }: { params: { orderId: string } }) {
     try {
@@ -20,7 +10,7 @@ export async function GET(req: NextRequest, { params }: { params: { orderId: str
             return NextResponse.json({ success: false, error: 'Missing orderId' }, { status: 400 });
         }
 
-        const response = await Cashfree.PGFetchOrder("2023-08-01", orderId);
+        const response = await cashfree.PGFetchOrder(orderId);
 
         return NextResponse.json({
             success: true,

@@ -1,15 +1,7 @@
-
 // src/app/api/payment/create-order/route.ts
 
 import { NextRequest, NextResponse } from "next/server";
-import { Cashfree } from "cashfree-pg";
-
-// Initialize Cashfree
-Cashfree.XClientId = process.env.CASHFREE_APP_ID;
-Cashfree.XClientSecret = process.env.CASHFREE_SECRET_KEY;
-Cashfree.XEnvironment = process.env.CASHFREE_ENV === 'production'
-    ? Cashfree.Environment.PRODUCTION
-    : Cashfree.Environment.SANDBOX;
+import { cashfree } from "@/lib/cashfree";
 
 export async function POST(req: NextRequest) {
     try {
@@ -31,11 +23,17 @@ export async function POST(req: NextRequest) {
         const orderId = `XO_${Date.now()}_${Math.random().toString(36).substring(2, 6)}`;
         const customerId = `CUST_${Date.now()}_${Math.random().toString(36).substring(2, 6)}`;
 
-        // Ensure this URL is correct for your environment
-        const baseUrl = process.env.NEXT_PUBLIC_BASE_URL || 'http://localhost:3000';
+        // Cashfree requires HTTPS URLs
+        // For local development, use ngrok or set a dummy URL
+        const baseUrl = process.env.BASE_URL || 'https://yourdomain.com'; // Dummy URL for development
         const returnUrl = `${baseUrl}/marketplace/success?order_id=${orderId}`;
 
-        const request: any = {
+        // Log warning if using localhost
+        if (baseUrl.includes('localhost')) {
+            console.warn('⚠️ WARNING: Cashfree requires HTTPS. Use ngrok for local development. See SETUP_NGROK.md');
+        }
+
+        const request = {
             order_amount: buildAmount,
             order_currency: "INR",
             order_id: orderId,
@@ -51,7 +49,12 @@ export async function POST(req: NextRequest) {
             order_note: `XO Rig - ${buildTier || 'Custom'} - ${buildName || 'Build'}`
         };
 
-        const response = await Cashfree.PGCreateOrder("2023-08-01", request);
+        console.log('Creating Cashfree order:', { orderId, amount: buildAmount, customer: customerName });
+
+        // Create order using Cashfree SDK v5
+        const response = await cashfree.PGCreateOrder(request);
+
+        console.log('Cashfree order created successfully:', response.data.order_id);
 
         return NextResponse.json({
             success: true,
@@ -60,10 +63,10 @@ export async function POST(req: NextRequest) {
         });
 
     } catch (error: any) {
-        console.error('Create order error:', error?.response?.data || error.message);
+        console.error('Create order error:', error?.response?.data || error?.message || error);
         return NextResponse.json({
             success: false,
-            error: error?.response?.data?.message || error.message || 'Failed to create order'
+            error: error?.response?.data?.message || error?.message || 'Failed to create order'
         }, { status: 500 });
     }
 }

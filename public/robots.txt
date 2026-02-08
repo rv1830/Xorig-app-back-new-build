@@ -1,0 +1,12 @@
+# robots.txt for XO Rig - Custom PC Marketplace
+# https://xorig.gg
+
+User-agent: *
+Allow: /
+Disallow: /api/
+
+# Sitemap location
+Sitemap: https://xorig.gg/sitemap.xml
+
+# LLMs.txt for AI crawlers
+# See: https://xorig.gg/llms.txt
