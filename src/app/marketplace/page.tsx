@@ -2,11 +2,12 @@
 
 import { useState } from "react";
 import Navbar from "@/components/Navbar";
+import Footer from "@/components/Footer"; // Footer Import kiya
 import { MARKETPLACE_DATA, Build } from "@/data/marketplace";
 import BuildCard from "@/components/marketplace/BuildCard";
 import PaymentModal from "@/components/marketplace/PaymentModal";
 import { motion, AnimatePresence } from "framer-motion";
-import { Check, Info, ChevronRight, X } from "lucide-react";
+import { Check, Info, ChevronRight } from "lucide-react";
 
 export default function MarketplacePage() {
     const [selectedIntentId, setSelectedIntentId] = useState<string>("gaming");
@@ -16,14 +17,18 @@ export default function MarketplacePage() {
     const currentIntent = MARKETPLACE_DATA.find(i => i.id === selectedIntentId) || MARKETPLACE_DATA[0];
 
     return (
-        <main className="min-h-screen bg-[#10002B] text-white selection:bg-[#FDC500] selection:text-[#240046] overflow-x-hidden">
+        <main className="min-h-screen bg-[#0B001E] text-white selection:bg-[#FDC500] selection:text-[#240046] overflow-x-hidden relative">
             <Navbar />
 
-            {/* Hero Header */}
-            <section className="pt-32 pb-16 px-6 bg-gradient-to-b from-[#1a0038] to-[#10002B] relative">
-                <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-[#C77DFF] rounded-full blur-[150px] opacity-10 pointer-events-none" />
+            {/* --- Global Background Atmosphere --- */}
+            <div className="fixed top-0 left-0 w-full h-full pointer-events-none overflow-hidden -z-10">
+                <div className="absolute top-[20%] right-[10%] w-[600px] h-[600px] bg-[#C77DFF] rounded-full blur-[150px] opacity-[0.08]" />
+                <div className="absolute bottom-[10%] left-[10%] w-[500px] h-[500px] bg-[#FDC500] rounded-full blur-[120px] opacity-[0.05]" />
+            </div>
 
-                <div className="container mx-auto max-w-7xl">
+            {/* Hero Header */}
+            <section className="pt-32 pb-16 px-6 relative">
+                <div className="container mx-auto max-w-7xl relative z-10">
                     <h1 className="text-4xl md:text-6xl font-black mb-4">
                         Shop by <span className="text-[#FDC500]">Intent.</span>
                     </h1>
@@ -38,11 +43,11 @@ export default function MarketplacePage() {
                                 key={intent.id}
                                 onClick={() => setSelectedIntentId(intent.id)}
                                 className={`
-                            px-6 py-3 rounded-full font-bold transition-all whitespace-nowrap border
-                            ${selectedIntentId === intent.id
+                                    px-6 py-3 rounded-full font-bold transition-all whitespace-nowrap border
+                                    ${selectedIntentId === intent.id
                                         ? 'bg-[#FDC500] text-[#10002B] border-[#FDC500] shadow-[0_0_20px_rgba(253,197,0,0.3)] scale-105'
                                         : 'bg-white/5 text-gray-400 border-white/10 hover:bg-white/10 hover:text-white'}
-                        `}
+                                `}
                             >
                                 {intent.name}
                             </button>
@@ -52,7 +57,7 @@ export default function MarketplacePage() {
             </section>
 
             {/* Main Content Area */}
-            <section className="py-12 px-6">
+            <section className="py-12 px-6 relative z-10">
                 <div className="container mx-auto max-w-7xl">
 
                     {/* Intent Description & What Matters */}
@@ -75,7 +80,7 @@ export default function MarketplacePage() {
                             </p>
                         </div>
 
-                        <div className="bg-[#240046]/30 border border-white/10 rounded-2xl p-6">
+                        <div className="bg-[#240046]/30 border border-white/10 rounded-2xl p-6 backdrop-blur-sm">
                             <h3 className="text-[#FDC500] font-bold uppercase tracking-widest text-xs mb-4 flex items-center gap-2">
                                 <Info className="w-4 h-4" /> What We Optimize For
                             </h3>
@@ -91,7 +96,7 @@ export default function MarketplacePage() {
                     </motion.div>
 
                     {/* Subcategories & Builds */}
-                    <div className="space-y-20">
+                    <div className="space-y-20 pb-20">
                         {currentIntent.subcategories.map((sub) => (
                             <div key={sub.id} id={sub.id} className="scroll-mt-32">
                                 <div className="flex items-end justify-between border-b border-white/10 pb-4 mb-8">
@@ -130,6 +135,8 @@ export default function MarketplacePage() {
                 )}
             </AnimatePresence>
 
+            {/* Footer added here */}
+            <Footer />
         </main>
     );
 }

@@ -6,9 +6,10 @@ import { useState, use } from "react";
 import { MARKETPLACE_DATA } from "@/data/marketplace";
 import type { Build } from "@/data/marketplace";
 import Navbar from "@/components/Navbar";
+import Footer from "@/components/Footer"; // Footer Import kiya
 import PaymentModal from "@/components/marketplace/PaymentModal";
-import { AnimatePresence } from "framer-motion";
-import { ArrowLeft, ArrowRight, ShoppingCart, Zap } from "lucide-react";
+import { AnimatePresence, motion } from "framer-motion";
+import { ArrowLeft, ArrowRight, Zap } from "lucide-react";
 
 interface Props {
     params: Promise<{ intent: string; subcategory: string }>;
@@ -28,10 +29,16 @@ export default function SubcategoryPage({ params }: Props) {
     if (!subcategory) notFound();
 
     return (
-        <main className="min-h-screen bg-[#10002B] text-white">
+        <main className="min-h-screen bg-[#0B001E] text-white selection:bg-[#FDC500] selection:text-[#240046] overflow-x-hidden relative">
             <Navbar />
 
-            <div className="container mx-auto px-6 pt-32 pb-20">
+            {/* --- Global Background Atmosphere --- */}
+            <div className="fixed top-0 left-0 w-full h-full pointer-events-none overflow-hidden -z-10">
+                <div className="absolute top-[20%] right-[10%] w-[600px] h-[600px] bg-[#C77DFF] rounded-full blur-[150px] opacity-[0.08]" />
+                <div className="absolute bottom-[10%] left-[10%] w-[500px] h-[500px] bg-[#FDC500] rounded-full blur-[120px] opacity-[0.05]" />
+            </div>
+
+            <div className="container mx-auto px-6 pt-32 pb-20 relative z-10">
                 {/* Breadcrumb */}
                 <div className="flex items-center gap-2 text-sm mb-8">
                     <Link href="/marketplace" className="text-gray-400 hover:text-white">
@@ -61,7 +68,7 @@ export default function SubcategoryPage({ params }: Props) {
                         {subcategory.builds.map((build, idx) => (
                             <div
                                 key={idx}
-                                className="relative p-6 rounded-3xl border border-white/10 bg-white/5 hover:border-[#C77DFF] transition-all"
+                                className="relative p-6 rounded-3xl border border-white/10 bg-white/5 backdrop-blur-sm hover:border-[#C77DFF] transition-all"
                             >
                                 {/* Tier Badge */}
                                 <div className="absolute -top-3 left-6 px-4 py-1 bg-[#C77DFF] text-white text-xs font-bold rounded-full">
@@ -102,7 +109,7 @@ export default function SubcategoryPage({ params }: Props) {
                                     {Object.entries(build.specs).map(([key, value]) => (
                                         <div key={key} className="flex justify-between text-sm">
                                             <span className="text-gray-400">{key}</span>
-                                            <span className="font-bold">{value}</span>
+                                            <span className="font-bold text-right ml-2">{value}</span>
                                         </div>
                                     ))}
                                 </div>
@@ -110,7 +117,7 @@ export default function SubcategoryPage({ params }: Props) {
                                 {/* CTA */}
                                 <button
                                     onClick={() => setModalBuild(build)}
-                                    className="block w-full py-3 bg-[#FDC500] text-[#10002B] font-bold text-center rounded-xl hover:bg-white transition-all"
+                                    className="block w-full py-3 bg-[#FDC500] text-[#10002B] font-bold text-center rounded-xl hover:bg-white transition-all shadow-[0_4px_15px_-5px_rgba(253,197,0,0.3)]"
                                 >
                                     Order This Build
                                 </button>
@@ -118,7 +125,7 @@ export default function SubcategoryPage({ params }: Props) {
                         ))}
                     </div>
                 ) : (
-                    <div className="max-w-2xl mx-auto text-center p-12 bg-white/5 rounded-3xl border border-white/10">
+                    <div className="max-w-2xl mx-auto text-center p-12 bg-white/5 backdrop-blur-sm rounded-3xl border border-white/10">
                         <h3 className="text-2xl font-bold mb-4">Coming Soon</h3>
                         <p className="text-gray-400 mb-6">
                             We're crafting the perfect builds for {subcategory.name}. Check back soon!
@@ -135,14 +142,14 @@ export default function SubcategoryPage({ params }: Props) {
 
                 {/* Bottom CTA */}
                 {subcategory.builds.length > 0 && (
-                    <div className="max-w-3xl mx-auto mt-16 text-center p-8 bg-gradient-to-r from-[#C77DFF]/10 to-[#FDC500]/10 rounded-3xl border border-white/10">
+                    <div className="max-w-3xl mx-auto mt-16 text-center p-8 bg-white/5 backdrop-blur-sm rounded-3xl border border-white/10">
                         <h3 className="text-2xl font-bold mb-4">Want custom specs?</h3>
                         <p className="text-gray-400 mb-6">
                             These are pre-configured builds. Use our AI builder for fully custom recommendations.
                         </p>
                         <Link
                             href="/builder"
-                            className="inline-flex items-center gap-2 px-8 py-4 bg-[#FDC500] text-[#10002B] font-bold rounded-xl hover:bg-white transition-all"
+                            className="inline-flex items-center gap-2 px-8 py-4 bg-[#FDC500] text-[#10002B] font-bold rounded-xl hover:bg-white transition-all shadow-[0_4px_20px_-5px_rgba(253,197,0,0.4)]"
                         >
                             Build Custom PC
                             <ArrowRight className="w-5 h-5" />
@@ -160,6 +167,8 @@ export default function SubcategoryPage({ params }: Props) {
                     />
                 )}
             </AnimatePresence>
+
+            <Footer />
         </main>
     );
 }
