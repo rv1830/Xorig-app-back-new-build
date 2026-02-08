@@ -1,8 +1,9 @@
 "use client";
 
 import Link from "next/link";
+import Image from "next/image";
 import { motion } from "framer-motion";
-import { Instagram, Twitter, Linkedin, Mail, Phone, MapPin, ArrowRight, Zap } from "lucide-react";
+import { Instagram, Twitter, Linkedin, Mail, Phone, MapPin, ArrowRight } from "lucide-react";
 
 export default function Footer() {
     const currentYear = new Date().getFullYear();
@@ -69,15 +70,14 @@ export default function Footer() {
                     {/* Brand Column */}
                     <div className="lg:col-span-2">
                         <div className="flex items-center gap-3 mb-6">
-                            <div className="relative w-12 h-12">
-                                <div className="absolute inset-0 bg-gradient-to-br from-[#C77DFF] to-[#FDC500] rounded-xl" />
-                                <div className="absolute inset-0 flex items-center justify-center">
-                                    <Zap className="w-7 h-7 text-[#10002B] fill-current" />
-                                </div>
-                            </div>
-                            <div className="flex flex-col">
-                                <span className="text-2xl font-black tracking-tighter text-white uppercase italic leading-none">Xorig</span>
-                                <span className="text-[10px] text-[#FDC500] font-bold tracking-[0.2em] uppercase">AI ENGINE</span>
+                            <div className="relative h-14 w-auto">
+                                <Image
+                                    src="/Xofull.svg"
+                                    alt="Xorig"
+                                    width={160}
+                                    height={56}
+                                    className="h-full w-auto object-contain"
+                                />
                             </div>
                         </div>
                         <p className="text-gray-300 mb-6 leading-relaxed">

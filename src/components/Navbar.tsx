@@ -2,8 +2,9 @@
 
 import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
-import { Menu, X, Zap, ArrowRight, Sparkles } from "lucide-react";
+import { Menu, X, ArrowRight, Sparkles } from "lucide-react";
 import Link from "next/link";
+import Image from "next/image";
 import { motion, AnimatePresence } from "framer-motion";
 import MegaDropdown from "./nav/MegaDropdown";
 
@@ -41,20 +42,18 @@ const Navbar = () => {
                 {/* Logo Section */}
                 <Link href="/" className="flex items-center gap-3 group relative">
                     <motion.div
-                        whileHover={{ scale: 1.1, rotate: 5 }}
-                        className="relative flex items-center justify-center w-10 h-10 rounded-xl bg-[#FDC500]/10 border border-[#FDC500]/20 group-hover:bg-[#FDC500]/20 group-hover:border-[#FDC500]/40 transition-all shadow-inner"
+                        whileHover={{ scale: 1.05 }}
+                        className="relative h-12 w-auto flex items-center"
                     >
-                        <Zap className="w-5 h-5 text-[#FDC500] fill-[#FDC500]/20" />
-                        <motion.div
-                            animate={{ opacity: [0, 1, 0] }}
-                            transition={{ duration: 2, repeat: Infinity }}
-                            className="absolute inset-0 rounded-xl bg-[#FDC500]/10 blur-sm"
+                        <Image
+                            src="/Xofull.svg"
+                            alt="Xorig"
+                            width={120}
+                            height={48}
+                            className="h-full w-auto object-contain py-1"
+                            priority
                         />
                     </motion.div>
-                    <div className="flex flex-col">
-                        <span className="text-xl font-black tracking-tighter text-white uppercase italic leading-none">Xorig</span>
-                        <span className="text-[8px] text-[#FDC500] font-bold tracking-[0.2em] uppercase mt-0.5">AI Engine</span>
-                    </div>
                 </Link>
 
                 {/* Desktop Links - Floating Hover Effect */}
