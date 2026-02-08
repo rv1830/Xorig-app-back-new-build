@@ -3,8 +3,9 @@
 import { NextRequest, NextResponse } from "next/server";
 import { cashfree } from "@/lib/cashfree";
 
-export async function GET(req: NextRequest, { params }: { params: { orderId: string } }) {
+export async function GET(req: NextRequest, props: { params: Promise<{ orderId: string }> }) {
     try {
+        const params = await props.params;
         const { orderId } = params;
         if (!orderId) {
             return NextResponse.json({ success: false, error: 'Missing orderId' }, { status: 400 });
