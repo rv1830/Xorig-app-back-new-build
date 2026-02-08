@@ -5,7 +5,6 @@ import { Button } from "@/components/ui/button";
 import { Menu, X, Zap, ArrowRight, Sparkles } from "lucide-react";
 import Link from "next/link";
 import { motion, AnimatePresence } from "framer-motion";
-import ThemeToggle from "./ThemeToggle";
 import MegaDropdown from "./nav/MegaDropdown";
 
 const Navbar = () => {
@@ -92,15 +91,13 @@ const Navbar = () => {
 
                 {/* Desktop Actions */}
                 <div className="hidden lg:flex items-center gap-4">
-                    <ThemeToggle />
-                    <Button asChild size="sm" className="h-10 px-6 rounded-xl font-bold bg-[#FDC500] text-[#10002B] shadow-lg shadow-[#FDC500]/20 hover:shadow-[#FDC500]/40 hover:bg-white transition-all">
+                    <Button asChild size="sm" className="h-10 px-6 rounded-xl font-bold bg-[#FDC500] text-[#10002B] shadow-lg shadow-[#FDC500]/20 hover:shadow-[#FDC500]/40 hover:bg-yellow-300 transition-all">
                         <Link href="/contact">Talk to an Expert</Link>
                     </Button>
                 </div>
 
                 {/* Mobile Toggle */}
                 <div className="lg:hidden flex items-center gap-3">
-                    <ThemeToggle />
                     <button
                         className="p-2 rounded-xl bg-white/5 border border-white/10 text-white transition-all active:scale-90"
                         onClick={() => setIsOpen(!isOpen)}
@@ -120,11 +117,28 @@ const Navbar = () => {
                         className="fixed inset-x-4 top-24 z-[99] lg:hidden p-8 rounded-[2.5rem] bg-[#10002B]/95 backdrop-blur-2xl border border-white/10 shadow-2xl pointer-events-auto"
                     >
                         <div className="flex flex-col gap-6 text-center">
+                            {/* Find a solution button */}
+                            <motion.div
+                                initial={{ opacity: 0, x: -10 }}
+                                animate={{ opacity: 1, x: 0 }}
+                                transition={{ delay: 0 }}
+                            >
+                                <button
+                                    onClick={() => {
+                                        setIsOpen(false);
+                                        setSolutionsOpen(true);
+                                    }}
+                                    className="w-full text-2xl font-black tracking-tighter uppercase italic text-[#FDC500] hover:opacity-80 transition-colors py-3 bg-[#FDC500]/10 rounded-xl border border-[#FDC500]/20"
+                                >
+                                    Find a solution →
+                                </button>
+                            </motion.div>
+
                             {navLinks.map((link, i) => (
                                 <motion.div
                                     initial={{ opacity: 0, x: -10 }}
                                     animate={{ opacity: 1, x: 0 }}
-                                    transition={{ delay: i * 0.1 }}
+                                    transition={{ delay: (i + 1) * 0.1 }}
                                     key={link.name}
                                 >
                                     <Link
@@ -140,12 +154,9 @@ const Navbar = () => {
                             <div className="h-px bg-white/20 my-2" />
 
                             <div className="flex flex-col gap-4">
-                                <Button asChild variant="outline" className="h-14 rounded-2xl font-bold text-lg border-white/20 text-white hover:text-[#10002B]">
-                                    <Link href="/login" onClick={() => setIsOpen(false)}>Login ID</Link>
-                                </Button>
                                 <Button asChild className="h-14 rounded-2xl font-bold text-lg shadow-xl shadow-[#FDC500]/20 bg-[#FDC500] text-[#10002B] hover:bg-white">
-                                    <Link href="/signup" onClick={() => setIsOpen(false)} className="flex items-center gap-2">
-                                        Create Loop <Sparkles className="w-5 h-5" />
+                                    <Link href="/contact" onClick={() => setIsOpen(false)}>
+                                        Talk to an Expert
                                     </Link>
                                 </Button>
                             </div>
