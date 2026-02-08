@@ -52,7 +52,7 @@ const Navbar = () => {
                         />
                     </motion.div>
                     <div className="flex flex-col">
-                        <span className="text-xl font-black tracking-tighter text-white uppercase italic leading-none">Xorigg</span>
+                        <span className="text-xl font-black tracking-tighter text-white uppercase italic leading-none">Xorig</span>
                         <span className="text-[8px] text-[#FDC500] font-bold tracking-[0.2em] uppercase mt-0.5">AI Engine</span>
                     </div>
                 </Link>

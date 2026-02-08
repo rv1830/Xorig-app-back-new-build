@@ -5,6 +5,7 @@ import Navbar from "@/components/Navbar";
 import { motion } from "framer-motion";
 import { MessageCircle, Mail, Phone, MapPin, Clock, Send, CheckCircle2, Sparkles } from "lucide-react";
 import Link from "next/link";
+import Footer from "@/components/Footer";
 
 export default function ContactPage() {
     const [formData, setFormData] = useState({
@@ -352,6 +353,7 @@ export default function ContactPage() {
                 </div>
             </section>
 
-        </main>
+            <Footer />
+        </main >
     );
 }

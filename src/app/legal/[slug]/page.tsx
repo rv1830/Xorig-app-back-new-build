@@ -3,6 +3,7 @@
 import { useParams, notFound } from "next/navigation";
 import ReactMarkdown from "react-markdown";
 import Navbar from "@/components/Navbar";
+import Footer from "@/components/Footer";
 import { LEGAL_PAGES } from "@/data/legal";
 
 export default function LegalPage() {
@@ -38,6 +39,7 @@ export default function LegalPage() {
                     </div>
                 </div>
             </section>
+            <Footer />
         </main>
     );
 }

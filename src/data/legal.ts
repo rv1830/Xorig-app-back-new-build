@@ -15,6 +15,7 @@ These Terms and Conditions (“Terms”) govern your access to and use of the we
 * **Legal entity:** XO Rig Computers Pvt. Ltd. *(CIN: U47411HR2026PTC140738)*
 * **Address:** 1123, Sector-6, Bahadurgarh, Haryana – 124507, India
 * **Support:** [support@xorig.gg](mailto:support@xorig.gg) | +91 8901089898
+* **Hours:** Monday to Saturday, 9:00 AM to 6:00 PM (IST)
 * **GSTIN:** 06AAACX6158R1ZL
 
 ## 2) Scope and applicability
@@ -204,6 +205,78 @@ For standalone components/peripherals/accessories that remain unopened and seale
 ## 8) DOA / transit-related issues (reported within 24 hours)
 Claims of damage during shipping and/or DOA must be reported within 24 hours of delivery, and are subject to strict evidence requirements described in the Shipping and Exchange Policy.
 `
+    },
+    "shipping-exchange": {
+        title: "Shipping & Exchange Policy",
+        content: `
+***Last updated:** 03 February 2026*
+
+This Shipping and Exchange Policy applies to shipments originating from Bahadurgarh, Haryana – 124507.
+
+## 1) Shipping coverage
+We ship Pan-India, subject to serviceability by our logistics partners. Your XO Rig representative will inform you in advance if a particular PIN code is not serviceable.
+
+## 2) Shipping partners
+We use multiple trusted logistics partners. Specific partner selection may vary by location, shipment value, size, and serviceability.
+
+## 3) Dispatch and build timelines
+* Custom PC builds typically require 3–9 business days for sourcing (where applicable), assembly, and testing, subject to part availability and origin.
+* Dispatch occurs after internal testing of build-installed components (cabinet, CPU, GPU, motherboard, RAM, etc.).
+* Items not installed in the build (e.g., certain peripherals/accessories) may be shipped sealed.
+
+**Important:** Delivery timelines are calculated from Order Confirmation (when full payment is received in XO Rig’s account). For EMI, settlement delays (T+1 to T+3 business days or more) are not counted towards build/delivery timelines.
+
+## 4) Estimated delivery time
+Unless otherwise communicated in writing with reasons, customers should generally expect delivery within 10–20 days from Order Confirmation. This is an estimate, not a guarantee, and may vary due to courier delays, weather, remote-area routing, inspections, or force majeure events.
+
+## 5) Shipping charges and insurance
+* Shipping charges are calculated based on weight, carton dimensions, shipment value, and destination location.
+* Insurance is applied by default based on shipment value. If you require an uninsured shipment, you must notify your XO Rig representative before dispatch.
+* We do not charge packaging fees; however, special packaging requests (e.g., gifting) may be accommodated on request.
+
+## 6) Delivery, verification, and acceptance
+* Identity verification at delivery (if any) is performed by the logistics provider as per their procedures.
+* Risk transfers to the buyer upon successful delivery at the provided address.
+
+## 7) Mandatory evidence for transit damage / DOA claims
+Because PCs are delicate and high-value, transit damage/DOA claims require strict proof.
+
+**To be eligible to raise a transit damage or DOA claim:**
+
+You must create a continuous, unedited video showing:
+1. the package being received from the delivery agent, and
+2. the sealed package from all sides (including labels), and
+3. the unboxing and first inspection immediately upon receipt, preferably in the presence of the delivery agent.
+
+Where feasible and permitted, the video should also capture delivery agent identification details and the handover moment.
+
+You must retain the outer packaging, inner packaging, and all accessories for inspection.
+
+If you accept delivery without the required evidence, your ability to claim transit damage/DOA may be materially affected, because logistics/insurance partners typically require strict proof.
+
+## 8) Reporting window (24 hours)
+Transit damage/DOA issues must be reported within 24 hours of delivery to [support@xorig.gg](mailto:support@xorig.gg) with:
+* order details,
+* photos of packaging and product, and
+* the complete unboxing/handover video.
+
+Reports after 24 hours may be rejected due to logistics/insurer evidence requirements.
+
+## 9) RTO (Return to Origin) / failed delivery
+If a shipment is returned to origin due to reasons attributable to the customer (including incorrect address, unavailability, refusal to accept, repeated failed attempts, or non-cooperation with delivery procedures):
+* No refund will be issued. The order is treated as completed/sold.
+* The customer may request re-shipment within 30 days of our notice, and must arrange/pay shipping for re-dispatch as applicable.
+* If the customer does not claim/re-arrange shipping within 30 days, the shipment may be treated as unclaimed/abandoned and may be disposed of by XO Rig in a lawful manner. No compensation will be payable for unclaimed shipments.
+
+## 10) Exchange policy (wrong item shipped)
+We offer exchange only in the event you receive a wrong item (incorrect Product shipped by XO Rig).
+
+**Conditions:**
+* You must notify XO Rig within 7 days of delivery.
+* The item must be unopened, sealed, and in original condition.
+* XO Rig will arrange reverse pickup/RTO and re-delivery at our cost.
+* If the correct item is unavailable, we will issue a refund to the original payment method (subject to gateway/bank timelines).
+* If the wrong item was delivered, XO Rig will bear the price difference between what was charged and what should have been delivered, as applicable.
+`
     }
-    // Add "shipping-exchange" similarly if needed context length allows
 };

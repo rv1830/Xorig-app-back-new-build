@@ -165,7 +165,7 @@ function TextOverlays({ scrollYProgress }: { scrollYProgress: any }) {
             {/* Beat 1: 0% */}
             <motion.div style={{ opacity: opacity1, y: y1 }} className="absolute inset-0 flex items-center justify-center text-center">
                 <div className="bg-black/10 backdrop-blur-sm p-6 rounded-3xl border border-white/10 shadow-2xl">
-                    <h2 className="text-6xl md:text-9xl font-black text-[#FDC500] tracking-tighter mb-4 drop-shadow-lg">Xorigg</h2>
+                    <h2 className="text-6xl md:text-9xl font-black text-[#FDC500] tracking-tighter mb-4 drop-shadow-lg">Xorig</h2>
                     <p className="text-white text-2xl tracking-[0.5em] font-bold uppercase drop-shadow-md">Custom PCs, Built for Your Life. </p>
                 </div>
             </motion.div>
