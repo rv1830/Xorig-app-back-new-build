@@ -2,7 +2,7 @@
 
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
-import { motion, useScroll, useTransform } from "framer-motion";
+import { motion, useScroll } from "framer-motion";
 import { useRef } from "react";
 import { ShoppingCart, FileCheck, PackageSearch, Cpu, CheckCircle2, Truck, Home, Sparkles } from "lucide-react";
 
@@ -59,16 +59,22 @@ export default function DeliveryProcessPage() {
     ];
 
     return (
-        <main className="min-h-screen bg-[#10002B] text-white selection:bg-[#FDC500] selection:text-[#240046]">
+        <main className="min-h-screen bg-[#0B001E] text-white selection:bg-[#FDC500] selection:text-[#240046] overflow-x-hidden relative">
             <Navbar />
 
+            {/* --- Global Background Atmosphere --- */}
+            <div className="fixed top-0 left-0 w-full h-full pointer-events-none overflow-hidden -z-10">
+                <div className="absolute top-[20%] right-[10%] w-[600px] h-[600px] bg-[#C77DFF] rounded-full blur-[150px] opacity-[0.08]" />
+                <div className="absolute bottom-[10%] left-[10%] w-[500px] h-[500px] bg-[#FDC500] rounded-full blur-[120px] opacity-[0.05]" />
+            </div>
+
             {/* Hero Section */}
-            <section className="pt-32 pb-16 px-6 text-center">
+            <section className="pt-32 pb-16 px-6 text-center relative z-10">
                 <div className="container mx-auto max-w-4xl">
                     <motion.div
                         initial={{ opacity: 0, y: 20 }}
                         animate={{ opacity: 1, y: 0 }}
-                        className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/5 border border-white/10 mb-8"
+                        className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/5 border border-white/10 mb-8 backdrop-blur-sm"
                     >
                         <Sparkles className="w-4 h-4 text-[#FDC500]" />
                         <span className="text-sm font-medium text-gray-300">From our lab to your setup</span>
@@ -86,7 +92,7 @@ export default function DeliveryProcessPage() {
                         initial={{ opacity: 0, y: 20 }}
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ delay: 0.2 }}
-                        className="text-xl text-gray-400 max-w-2xl mx-auto"
+                        className="text-xl text-gray-400 max-w-2xl mx-auto font-light"
                     >
                         We don't just ship boxes. We engineer experiences. Here's how your Xorig rig comes to life.
                     </motion.p>
@@ -94,11 +100,13 @@ export default function DeliveryProcessPage() {
             </section>
 
             {/* Timeline Process */}
-            <section ref={containerRef} className="py-20 px-6 relative overflow-hidden">
+            <section ref={containerRef} className="py-20 px-6 relative z-10">
                 <div className="container mx-auto max-w-4xl relative">
 
                     {/* Central Line */}
                     <div className="absolute left-[28px] md:left-1/2 top-0 bottom-0 w-1 bg-white/10 md:-translate-x-1/2 rounded-full" />
+                    
+                    {/* Animated Progress Line */}
                     <motion.div
                         style={{ scaleY: scrollYProgress }}
                         className="absolute left-[28px] md:left-1/2 top-0 bottom-0 w-1 bg-gradient-to-b from-[#FDC500] via-[#C77DFF] to-[#FDC500] md:-translate-x-1/2 rounded-full origin-top"
@@ -128,24 +136,25 @@ function TimelineItem({ step, index, isEven }: { step: any, index: number, isEve
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: "-100px" }}
             transition={{ duration: 0.5, delay: index * 0.1 }}
-            className={`relative flex flex-col md:flex-row items-start md:items-center gap-8 ${isEven ? "md:flex-row-reverse" : ""
-                }`}
+            className={`relative flex flex-col md:flex-row items-start md:items-center gap-8 ${
+                isEven ? "md:flex-row-reverse" : ""
+            }`}
         >
             {/* Content Side */}
-            <div className="flex-1 pl-16 md:pl-0 md:text-right w-full">
-                <div className={`${isEven ? "md:text-left" : "md:text-right"}`}>
-                    <h3 className="text-2xl font-bold mb-2 text-white">{step.title}</h3>
-                    <p className="text-gray-400 leading-relaxed">{step.description}</p>
+            <div className="flex-1 pl-16 md:pl-0 w-full">
+                <div className={`${isEven ? "md:text-left" : "md:text-right"} bg-white/5 backdrop-blur-md p-6 rounded-2xl border border-white/5 hover:border-white/20 transition-all group`}>
+                    <h3 className="text-2xl font-bold mb-2 text-white group-hover:text-[#FDC500] transition-colors">{step.title}</h3>
+                    <p className="text-gray-400 leading-relaxed text-sm md:text-base">{step.description}</p>
                 </div>
             </div>
 
             {/* Icon Node */}
-            <div className="absolute left-0 md:left-1/2 md:-translate-x-1/2 w-14 h-14 rounded-full bg-[#10002B] border-4 border-[#10002B] z-10 flex items-center justify-center">
+            <div className="absolute left-0 md:left-1/2 md:-translate-x-1/2 w-14 h-14 rounded-full bg-[#0B001E] border-4 border-[#0B001E] z-10 flex items-center justify-center">
                 <div
-                    className="w-full h-full rounded-full flex items-center justify-center shadow-[0_0_20px_rgba(0,0,0,0.5)]"
+                    className="w-full h-full rounded-full flex items-center justify-center shadow-[0_0_20px_rgba(0,0,0,0.5)] transition-transform duration-300 hover:scale-110"
                     style={{ backgroundColor: step.color }}
                 >
-                    <step.icon className="w-6 h-6 text-[#10002B]" />
+                    <step.icon className="w-6 h-6 text-[#0B001E]" />
                 </div>
             </div>
 
