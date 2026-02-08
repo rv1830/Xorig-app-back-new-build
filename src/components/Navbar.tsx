@@ -18,10 +18,10 @@ const Navbar = () => {
     }, []);
 
     const navLinks = [
-        { name: "Features", href: "#features" },
-        { name: "How It Works", href: "#how-it-works" },
-        { name: "Pricing", href: "#pricing" },
-        { name: "Integrations", href: "#integrations" },
+        { name: "AI Builder", href: "/builder" },
+        { name: "Marketplace", href: "/marketplace" },
+        { name: "About", href: "/about" },
+        { name: "Trust & Safety", href: "/trust-safety" },
     ];
 
     return (

@@ -165,14 +165,14 @@ function TextOverlays({ scrollYProgress }: { scrollYProgress: any }) {
             {/* Beat 1: 0% */}
             <motion.div style={{ opacity: opacity1, y: y1 }} className="absolute inset-0 flex items-center justify-center text-center">
                 <div className="bg-black/10 backdrop-blur-sm p-6 rounded-3xl border border-white/10 shadow-2xl">
-                    <h2 className="text-6xl md:text-9xl font-black text-[#FDC500] tracking-tighter mb-2 drop-shadow-lg">PC</h2>
-                    <p className="text-white text-2xl tracking-[0.5em] font-bold uppercase drop-shadow-md">Engineered Clarity</p>
+                    <h2 className="text-6xl md:text-9xl font-black text-[#FDC500] tracking-tighter mb-4 drop-shadow-lg">Xorigg</h2>
+                    <p className="text-white text-2xl tracking-[0.5em] font-bold uppercase drop-shadow-md">Custom PCs, Built for Your Life. </p>
                 </div>
             </motion.div>
 
             {/* Beat 2: 25% Left */}
             <motion.div style={{ opacity: opacity2, y: y2 }} className="absolute inset-0 flex items-center justify-start md:pl-20">
-                <div className="text-left bg-black/10 backdrop-blur-sm p-8 rounded-3xl border border-white/10 shadow-2xl">
+                <div className="text-left p-8 ">
                     <h2 className="text-5xl md:text-8xl font-black text-[#FDC500] tracking-tighter mb-4 leading-none drop-shadow-lg">BUILT FOR<br />PRECISION.</h2>
                     <p className="text-white text-xl tracking-widest font-bold uppercase drop-shadow-md">Every detail, measured</p>
                 </div>
@@ -180,7 +180,7 @@ function TextOverlays({ scrollYProgress }: { scrollYProgress: any }) {
 
             {/* Beat 3: 60% Right */}
             <motion.div style={{ opacity: opacity3, y: y3 }} className="absolute inset-0 flex items-center justify-end md:pr-20">
-                <div className="text-right bg-black/10 backdrop-blur-sm p-8 rounded-3xl border border-white/10 shadow-2xl">
+                <div className="text-right p-8 ">
                     <h2 className="text-5xl md:text-8xl font-black text-[#FDC500] tracking-tighter mb-4 leading-none drop-shadow-lg">LAYERED<br />ENGINEERING.</h2>
                     <p className="text-white text-xl tracking-widest font-bold uppercase drop-shadow-md">See what's inside</p>
                 </div>
