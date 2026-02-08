@@ -6,10 +6,12 @@ import { Menu, X, Zap, ArrowRight, Sparkles } from "lucide-react";
 import Link from "next/link";
 import { motion, AnimatePresence } from "framer-motion";
 import ThemeToggle from "./ThemeToggle";
+import MegaDropdown from "./nav/MegaDropdown";
 
 const Navbar = () => {
     const [isOpen, setIsOpen] = useState(false);
     const [scrolled, setScrolled] = useState(false);
+    const [solutionsOpen, setSolutionsOpen] = useState(false);
 
     useEffect(() => {
         const handleScroll = () => setScrolled(window.scrollY > 20);
@@ -58,6 +60,24 @@ const Navbar = () => {
 
                 {/* Desktop Links - Floating Hover Effect */}
                 <div className="hidden lg:flex items-center gap-1">
+                    {/* Find a solution - Mega Dropdown */}
+                    <div
+                        className="relative"
+                        onMouseEnter={() => setSolutionsOpen(true)}
+                    >
+                        <button
+                            className="px-4 py-2 text-xs font-bold uppercase tracking-widest text-gray-300 hover:text-[#FDC500] transition-all rounded-lg hover:bg-[#FDC500]/5 relative group"
+                        >
+                            Find a solution
+                            <span className="absolute bottom-0 left-1/2 -translate-x-1/2 w-0 h-0.5 bg-[#FDC500] transition-all group-hover:w-1/2" />
+                        </button>
+
+                        <MegaDropdown
+                            open={solutionsOpen}
+                            onClose={() => setSolutionsOpen(false)}
+                        />
+                    </div>
+
                     {navLinks.map((link) => (
                         <Link
                             key={link.name}
