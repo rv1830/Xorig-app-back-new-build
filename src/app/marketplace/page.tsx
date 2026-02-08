@@ -1,142 +1,135 @@
 "use client";
 
+import { useState } from "react";
 import Navbar from "@/components/Navbar";
-import { motion } from "framer-motion";
-import MarketplaceForm from "@/components/marketplace/MarketplaceForm";
-import { ShieldCheck, Image as ImageIcon, Gavel, History } from "lucide-react";
+import { MARKETPLACE_DATA, Build } from "@/data/marketplace";
+import BuildCard from "@/components/marketplace/BuildCard";
+import PaymentModal from "@/components/marketplace/PaymentModal";
+import { motion, AnimatePresence } from "framer-motion";
+import { Check, Info, ChevronRight, X } from "lucide-react";
 
 export default function MarketplacePage() {
+    const [selectedIntentId, setSelectedIntentId] = useState<string>("gaming");
+    const [modalBuild, setModalBuild] = useState<Build | null>(null);
+
+    // Derive current data from selection
+    const currentIntent = MARKETPLACE_DATA.find(i => i.id === selectedIntentId) || MARKETPLACE_DATA[0];
+
     return (
         <main className="min-h-screen bg-[#10002B] text-white selection:bg-[#FDC500] selection:text-[#240046] overflow-x-hidden">
             <Navbar />
 
-            {/* Hero Section */}
-            <section className="relative pt-32 pb-20 px-4">
-                {/* Background Elements */}
-                <div className="absolute top-0 left-0 w-full h-full overflow-hidden pointer-events-none">
-                    <div className="absolute top-[-10%] right-[-10%] w-[600px] h-[600px] bg-[#FDC500] rounded-full blur-[150px] opacity-10 animate-pulse" />
-                </div>
+            {/* Hero Header */}
+            <section className="pt-32 pb-16 px-6 bg-gradient-to-b from-[#1a0038] to-[#10002B] relative">
+                <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-[#C77DFF] rounded-full blur-[150px] opacity-10 pointer-events-none" />
 
-                <div className="container mx-auto max-w-6xl">
-                    <div className="text-center mb-16">
-                        <motion.span
-                            initial={{ opacity: 0 }}
-                            animate={{ opacity: 1 }}
-                            className="text-[#C77DFF] font-bold tracking-widest text-sm uppercase mb-4 block"
-                        >
-                            The New Way to Buy
-                        </motion.span>
-                        <motion.h1
-                            initial={{ opacity: 0, y: 20 }}
-                            animate={{ opacity: 1, y: 0 }}
-                            className="text-5xl md:text-7xl font-black mb-6 tracking-tighter"
-                        >
-                            Real Quotes.<br />
-                            <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#FDC500] to-[#C77DFF]">Real Sellers.</span>
-                        </motion.h1>
-                        <motion.p
-                            initial={{ opacity: 0, y: 20 }}
-                            animate={{ opacity: 1, y: 0 }}
-                            transition={{ delay: 0.1 }}
-                            className="text-gray-400 text-xl max-w-2xl mx-auto"
-                        >
-                            Describe exactly what you need. Verified sellers compete to offer you the best deal with real photos and live stock updates.
-                        </motion.p>
-                    </div>
+                <div className="container mx-auto max-w-7xl">
+                    <h1 className="text-4xl md:text-6xl font-black mb-4">
+                        Shop by <span className="text-[#FDC500]">Intent.</span>
+                    </h1>
+                    <p className="text-xl text-gray-400 max-w-2xl">
+                        Pick what you're building for — we'll show the builds tuned for that job. No guesswork.
+                    </p>
 
-                    <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
-
-                        {/* Left Col: Form */}
-                        <motion.div
-                            initial={{ opacity: 0, x: -50 }}
-                            animate={{ opacity: 1, x: 0 }}
-                            transition={{ delay: 0.2 }}
-                        >
-                            <MarketplaceForm />
-                        </motion.div>
-
-                        {/* Right Col: Benefits & Process */}
-                        <motion.div
-                            initial={{ opacity: 0, x: 50 }}
-                            animate={{ opacity: 1, x: 0 }}
-                            transition={{ delay: 0.3 }}
-                            className="space-y-12"
-                        >
-                            {/* Live Ticker (Mock) */}
-                            <div className="bg-[#240046]/30 border border-white/5 rounded-2xl p-6 backdrop-blur-sm">
-                                <div className="flex items-center gap-2 mb-4">
-                                    <span className="w-2 h-2 bg-green-500 rounded-full animate-pulse" />
-                                    <h4 className="font-bold text-white text-sm">Live Activity</h4>
-                                </div>
-                                <div className="space-y-3">
-                                    {[
-                                        "Verified Seller 'TechHut' quoted ₹22,500 for Audio Technica M50x",
-                                        "User 'Rahul_G' saved ₹5,000 on RTX 4070 Ti build",
-                                        "New Request: '32GB RAM Kit 6000MHz White RGB' - 3 Sellers notified"
-                                    ].map((item, i) => (
-                                        <div key={i} className="text-xs text-gray-400 border-l-2 border-[#C77DFF] pl-3 py-1">
-                                            {item}
-                                        </div>
-                                    ))}
-                                </div>
-                            </div>
-
-                            <div className="space-y-8">
-                                <Benefit
-                                    icon={<ShieldCheck className="w-6 h-6 text-[#FDC500]" />}
-                                    title="No Fake Listings"
-                                    desc="Every quote allows for chat and photo verification before you pay. No bait-and-switch tactics."
-                                />
-                                <Benefit
-                                    icon={<ImageIcon className="w-6 h-6 text-[#C77DFF]" />}
-                                    title="Real Photos, Real Stock"
-                                    desc="Sellers must upload current photos of the actual box/product. You see what you get."
-                                />
-                                <Benefit
-                                    icon={<Gavel className="w-6 h-6 text-[#FDC500]" />}
-                                    title="XO Rig Escrow"
-                                    desc="Your money is held safely by us until the product is delivered and verified."
-                                />
-                            </div>
-                        </motion.div>
-
-                    </div>
-                </div>
-            </section>
-
-            {/* How It Works Steps */}
-            <section className="py-24 border-t border-white/5 bg-[#0a001a]">
-                <div className="container mx-auto px-6 max-w-6xl">
-                    <h2 className="text-3xl font-black text-center mb-16">The Quotation Flow</h2>
-                    <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-                        {[
-                            { step: "1", title: "Post Requirement", desc: "Start with 'Headphones under 20k' or 'Monitor for coding'." },
-                            { step: "2", title: "Sellers Compete", desc: "Verified vendors reply with their best price and photos." },
-                            { step: "3", title: "Choose & Pay", desc: "Select the best value. We handle payment and logistics." }
-                        ].map((s, i) => (
-                            <div key={i} className="relative p-8 bg-white/5 rounded-3xl border border-white/5 text-center group hover:bg-white/10 transition-colors">
-                                <div className="text-6xl font-black text-white/5 absolute top-4 right-6 group-hover:text-white/10 transition-colors">{s.step}</div>
-                                <h3 className="text-xl font-bold text-[#FDC500] mb-4 relative z-10">{s.title}</h3>
-                                <p className="text-gray-400 relative z-10">{s.desc}</p>
-                            </div>
+                    {/* Intent Tabs */}
+                    <div className="flex flex-wrap gap-2 mt-8 overflow-x-auto pb-4 scrollbar-hide">
+                        {MARKETPLACE_DATA.map(intent => (
+                            <button
+                                key={intent.id}
+                                onClick={() => setSelectedIntentId(intent.id)}
+                                className={`
+                            px-6 py-3 rounded-full font-bold transition-all whitespace-nowrap border
+                            ${selectedIntentId === intent.id
+                                        ? 'bg-[#FDC500] text-[#10002B] border-[#FDC500] shadow-[0_0_20px_rgba(253,197,0,0.3)] scale-105'
+                                        : 'bg-white/5 text-gray-400 border-white/10 hover:bg-white/10 hover:text-white'}
+                        `}
+                            >
+                                {intent.name}
+                            </button>
                         ))}
                     </div>
                 </div>
             </section>
+
+            {/* Main Content Area */}
+            <section className="py-12 px-6">
+                <div className="container mx-auto max-w-7xl">
+
+                    {/* Intent Description & What Matters */}
+                    <motion.div
+                        key={selectedIntentId} // Re-render animation on change
+                        initial={{ opacity: 0, y: 10 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{ duration: 0.4 }}
+                        className="mb-16 grid grid-cols-1 lg:grid-cols-3 gap-8"
+                    >
+                        <div className="lg:col-span-2">
+                            <h2 className="text-3xl font-bold mb-4 flex items-center gap-3">
+                                {currentIntent.name} PCs
+                                <span className="text-sm font-normal text-gray-500 bg-white/5 px-3 py-1 rounded-full border border-white/5">
+                                    {currentIntent.subcategories.reduce((acc, sub) => acc + sub.builds.length, 0)} Options
+                                </span>
+                            </h2>
+                            <p className="text-gray-300 text-lg leading-relaxed border-l-4 border-[#C77DFF] pl-4">
+                                {currentIntent.description}
+                            </p>
+                        </div>
+
+                        <div className="bg-[#240046]/30 border border-white/10 rounded-2xl p-6">
+                            <h3 className="text-[#FDC500] font-bold uppercase tracking-widest text-xs mb-4 flex items-center gap-2">
+                                <Info className="w-4 h-4" /> What We Optimize For
+                            </h3>
+                            <ul className="space-y-2">
+                                {currentIntent.whatMatters.map((point, i) => (
+                                    <li key={i} className="flex gap-3 text-sm text-gray-300 items-start">
+                                        <Check className="w-4 h-4 text-[#C77DFF] mt-0.5 shrink-0" />
+                                        <span>{point}</span>
+                                    </li>
+                                ))}
+                            </ul>
+                        </div>
+                    </motion.div>
+
+                    {/* Subcategories & Builds */}
+                    <div className="space-y-20">
+                        {currentIntent.subcategories.map((sub) => (
+                            <div key={sub.id} id={sub.id} className="scroll-mt-32">
+                                <div className="flex items-end justify-between border-b border-white/10 pb-4 mb-8">
+                                    <div>
+                                        <h3 className="text-2xl font-bold text-white mb-1 group flex items-center gap-2 cursor-pointer hover:text-[#C77DFF] transition-colors">
+                                            {sub.name}
+                                            <ChevronRight className="w-5 h-5 opacity-50" />
+                                        </h3>
+                                        <p className="text-gray-500 text-sm">{sub.description}</p>
+                                    </div>
+                                </div>
+
+                                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                                    {sub.builds.map((build, idx) => (
+                                        <BuildCard
+                                            key={idx}
+                                            build={build}
+                                            onBuy={(b) => setModalBuild(b)}
+                                        />
+                                    ))}
+                                </div>
+                            </div>
+                        ))}
+                    </div>
+
+                </div>
+            </section>
+
+            {/* Payment Modal */}
+            <AnimatePresence>
+                {modalBuild && (
+                    <PaymentModal
+                        build={modalBuild}
+                        onClose={() => setModalBuild(null)}
+                    />
+                )}
+            </AnimatePresence>
+
         </main>
     );
-}
-
-function Benefit({ icon, title, desc }: { icon: any, title: string, desc: string }) {
-    return (
-        <div className="flex gap-4">
-            <div className="w-12 h-12 rounded-xl bg-white/5 flex items-center justify-center shrink-0 border border-white/10">
-                {icon}
-            </div>
-            <div>
-                <h4 className="text-lg font-bold text-white mb-1">{title}</h4>
-                <p className="text-gray-400 text-sm leading-relaxed">{desc}</p>
-            </div>
-        </div>
-    )
 }
